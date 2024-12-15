@@ -48,3 +48,26 @@ spec:
   userInfoAuthenticationMethod: "header"
   userNameAttributeName: "username"
   clientName: "GitLab"
+---
+apiVersion: oauth.halo.run/v1alpha1
+kind: Oauth2ClientRegistration
+metadata:
+  name: logto
+spec:
+  clientAuthenticationMethod: "client_secret_basic"
+  authorizationGrantType: "authorization_code"
+  redirectUri: "{baseUrl}/login/oauth2/code/logto"
+  scopes:
+    - "profile"
+    - "openid"
+  authorizationUri: "https://auth.utopias.site/oidc/auth"
+  tokenUri: "https://auth.utopias.site/oidc/token"
+  userInfoUri: "https://auth.utopias.site/oidc/me"
+  issuerUri: "https://auth.utopias.site/oidc"
+  jwkSetUri: "https://auth.utopias.site/oidc/jwks"
+  userInfoAuthenticationMethod: "header"
+  userNameAttributeName: "username"
+  clientName: "Logto"
+  configurationMetadata:
+    id_token_signing_alg_values_supported:
+      - "ES384"
